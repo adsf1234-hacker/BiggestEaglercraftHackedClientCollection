@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacks Launcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4ecca3;
+            --primary-dark: #45b792;
+            --bg-dark: #0f0f1a;
+            --bg-light: #1a1a2e;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-hover: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: radial-gradient(circle at top right, var(--bg-light), var(--bg-dark));
+            color: #fff;
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(78, 204, 163, 0.3);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(78, 204, 163, 0.2);
+        }
+
+        .category {
+            margin-bottom: 2rem;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .category.hidden {
+            display: none;
+        }
+
+        .category h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            background: var(--card-hover);
+            border-color: rgba(78, 204, 163, 0.4);
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(78, 204, 163, 0.2);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            display: block;
+            padding: 1rem 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+
+        .card:hover a {
+            color: var(--primary);
+        }
+
+        .version {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hacks Client Launcher</h1>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search clients..." autocomplete="off">
+            </div>
+        </header>
+
+        <div id="no-results" class="no-results">
+            No clients found matching your search.
+        </div>
+
+        <!-- UwU Series -->
+        <div class="category" data-category="uwu">
+            <h2>UwU Series</h2>
+            <div class="grid">
+                <div class="card" data-name="uwuclient b2">
+                    <a href="UwU-client-b2.html">
+                        UwUClient
+                        <span class="version">Beta 2</span>
+                    </a>
+                </div>
+                <div class="card" data-name="uwuclient v1">
+                    <a href="UwUClient v1 Full.html">
+                        UwUClient
+                        <span class="version">v1 Full</span>
+                    </a>
+                </div>
+                <div class="card" data-name="uwu lite">
+                    <a href="UwUlite2.html">
+                        UwU Lite
+                        <span class="version">2.0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dragon Series -->
+        <div class="category" data-category="dragon">
+            <h2>Dragon Series</h2>
+            <div class="grid">
+                <div class="card" data-name="dragon v4">
+                    <a href="DragonX V4.html">
+                        Dragon Client
+                        <span class="version">V4</span>
+                    </a>
+                </div>
+                <div class="card" data-name="dragonx v5">
+                    <a href="DragonXV5.html">
+                        DragonX
+                        <span class="version">V5</span>
+                    </a>
+                </div>
+                <div class="card" data-name="dragonx new">
+                    <a href="DragonX V2 Premium.html">
+                        DragonX
+                        <span class="version">V2 Premium</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Justin Series -->
+        <div class="category" data-category="justin">
+            <h2>Justin Client</h2>
+            <div class="grid">
+                <div class="card" data-name="justinv3">
+                    <a href="JustinClientV3.html">
+                        Justin Client
+                        <span class="version">V3</span>
+                    </a>
+                </div>
+                <div class="card" data-name="justin">
+                    <a href="JustinClientV1.html">
+                        Justin Client
+                        <span class="version">V1.2.4</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Clients -->
+        <div class="category" data-category="other">
+            <h2>Other Clients</h2>
+            <div class="grid">
+                <div class="card" data-name="wurstx">
+                    <a href="WurstX.html">
+                        WurstX Client
+                    </a>
+                </div>
+                <div class="card" data-name="pi-client">
+                    <a href="PiClient.html">
+                        PiClient
+                    </a>
+                </div>
+                <div class="card" data-name="meteor">
+                    <a href="MeteorX.html">
+                        Meteor Client
+                    </a>
+                </div>
+                <div class="card" data-name="demon">
+                    <a href="DemonClient.html">
+                        Demon Client
+                    </a>
+                </div>
+                <div class="card" data-name="koneclient">
+                    <a href="Koneclient-1.8.8-en_US.html">
+                        Koneclient
+                        <span class="version">1.8.8 Offline</span>
+                    </a>
+                </div>
+                <div class="card" data-name="flame">
+                    <a href="FlameClient 3.7.html">
+                        FlameClient
+                        <span class="version">3.7</span>
+                    </a>
+                </div>
+                <div class="card" data-name="daniel">
+                    <a href="DanielClient.html">
+                        Daniel Client
+                        <span class="version">V1</span>
+                    </a>
+                </div>
+                <div class="card" data-name="ayunami">
+                    <a href="ayunami-1.5.html">
+                        Ayunami Client
+                        <span class="version">V1.5</span>
+                    </a>
+                </div>
+                <div class="card" data-name="codercraft">
+                    <a href="codercraft.html">
+                        CoderCraft Client
+                    </a>
+                </div>
+                <div class="card" data-name="fuschiax">
+                    <a href="FuschiaX.html">
+                        FuschiaX Client
+                    </a>
+                </div>
+                <div class="card" data-name="kerosone">
+                    <a href="kerosone.html">
+                        Kerosone Client
+                    </a>
+                </div>
+                <div class="card" data-name="n0va">
+                    <a href="N0VA_CLIENT.html">
+                        N0VA Client
+                    </a>
+                </div>
+                <div class="card" data-name="nebula">
+                    <a href="Nebula.html">
+                        Nebula Client
+                    </a>
+                </div>
+                <div class="card" data-name="oddfuture">
+                    <a href="Oddfuture.html">
+                        Oddfuture Client
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const search = document.getElementById('search');
+        const categories = document.querySelectorAll('.category');
+        const cards = document.querySelectorAll('.card');
+        const noResults = document.getElementById('no-results');
+
+        function filterClients(searchTerm) {
+            searchTerm = searchTerm.toLowerCase().trim();
+            let hasVisibleCards = false;
+
+            if (searchTerm === '') {
+                cards.forEach(card => card.style.display = '');
+                categories.forEach(category => category.style.display = '');
+                noResults.style.display = 'none';
+                return;
+            }
+
+            cards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                const isVisible = cardText.includes(searchTerm);
+                card.style.display = isVisible ? '' : 'none';
+                if (isVisible) hasVisibleCards = true;
+            });
+
+            categories.forEach(category => {
+                const hasVisibleCard = Array.from(category.querySelectorAll('.card'))
+                    .some(card => card.style.display !== 'none');
+                category.style.display = hasVisibleCard ? '' : 'none';
+            });
+
+            noResults.style.display = hasVisibleCards ? 'none' : 'block';
+        }
+
+        search.addEventListener('input', (e) => {
+            filterClients(e.target.value);
+        });
+    </script>
+</body>
+</html>
